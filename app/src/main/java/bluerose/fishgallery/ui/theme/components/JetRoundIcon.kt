@@ -26,7 +26,7 @@ fun JetRoundIcon(vectorDrawableId: Int, modifier: Modifier)
         modifier = modifier
             .clip(shape= CircleShape) //обрезали по форме круга
             .background(color= back_logo) //заполнили светло-голубым
-            .border(width= 2.dp, color= OnPrimaryColor, shape= CircleShape) //сделали темную рамку
+            .border(width= 3.dp, color= OnPrimaryColor, shape= CircleShape) //сделали темную рамку
             .size(100.dp), //ограничили в размере, иконка ж
         contentAlignment = Alignment.Center //выравнивание по центру
     ){
