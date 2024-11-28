@@ -31,11 +31,9 @@ fun JetRoundIcon(vectorDrawableId: Int, modifier: Modifier)
         contentAlignment = Alignment.Center //выравнивание по центру
     ){
         Icon(
-            imageVector = ImageVector.vectorResource(id= vectorDrawableId),
-            contentDescription = "",
-            modifier = modifier
-                .background(color = back_logo),
-            tint = SurfaceColor
+            imageVector = ImageVector.vectorResource(id= vectorDrawableId), //добавили иконку по её id в ресурсах
+            contentDescription = "", //альтернативный текст. Должен быть всегда
+            tint = SurfaceColor //покрасили рыбку
         )
     }
 }
@@ -44,6 +42,7 @@ fun JetRoundIcon(vectorDrawableId: Int, modifier: Modifier)
 @Composable
 fun JetRoundIconPreview(){
     JetRoundIcon(
-        vectorDrawableId = R.drawable.ic_icon,
-        modifier = Modifier)
+        vectorDrawableId = R.drawable.ic_icon, //добавили ссылку на иконку из ресурсов
+        modifier = Modifier // пустой модификатор
+    )
 }
