@@ -75,7 +75,7 @@ fun StatisticsViewDisplay() {
             RoundedCornerShape(16.dp, 48.dp, 16.dp),
             modifier = Modifier.height(160.dp)
         )
-        Spacer(modifier = Modifier.height(90.dp))
+        Spacer(Modifier.weight(1f)) //занимает весь объем между компонентыми
         Row(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.End,
