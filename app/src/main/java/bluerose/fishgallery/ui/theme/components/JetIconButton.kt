@@ -20,9 +20,9 @@ import com.microsoft.fluent.mobile.icons.R
 @Composable
 fun JetIconButton(
     vectorDrawableId: Int,
-    contentPadding: PaddingValues,
-    shape: RoundedCornerShape,
-    modifier: Modifier = Modifier
+    contentPadding: PaddingValues = PaddingValues(12.dp),
+    shape: RoundedCornerShape = RoundedCornerShape(8.dp),
+    modifier: Modifier = Modifier.size(48.dp)
 ) {
     Box(
         contentAlignment = Alignment.Center,

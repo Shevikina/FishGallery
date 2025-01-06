@@ -3,7 +3,6 @@ package bluerose.fishgallery.ui.theme.components
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
@@ -28,7 +27,6 @@ fun JetRoundImage(
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
-            .padding(5.dp)
             .size(size)
             .border(
                 3.dp,
@@ -40,6 +38,7 @@ fun JetRoundImage(
                 shadowBlurRadius = 5.dp,
                 offsetY = 4.dp
             )
+
     ) {
         Image(
             painterResource(id = imageId),
@@ -55,6 +54,25 @@ fun JetRoundImage(
 @Composable
 fun JetRoundImagePreview() {
     FishGalleryTheme {
+//        Column(
+//            modifier = Modifier
+//                .background(MaterialTheme.colorScheme.primary)
+//                .fillMaxSize()
+//                .verticalScroll(rememberScrollState())
+//                .padding(24.dp)
+//        ) {
+//            Column(
+//                horizontalAlignment = Alignment.CenterHorizontally,
+//                modifier = Modifier
+//            ) {
+//                JetRoundImage(
+//                    imageId = R.drawable.app1_image1,
+//                    true,
+//                    modifier = Modifier
+//                )
+//            }
+//        }
+
         JetRoundImage(
             imageId = R.drawable.app1_image1,
             true,

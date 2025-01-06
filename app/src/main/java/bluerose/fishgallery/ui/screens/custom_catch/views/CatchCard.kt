@@ -27,7 +27,8 @@ fun CatchCard(label: String, text: String, imageId: Int, modifier: Modifier) {
         JetRoundImage(imageId)
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
-            modifier = Modifier.padding(horizontal = 16.dp, vertical = 5.dp)
+            modifier = Modifier
+                .padding(horizontal = 16.dp, vertical = 5.dp)
         ) {
             Text(
                 text = label,
@@ -36,7 +37,6 @@ fun CatchCard(label: String, text: String, imageId: Int, modifier: Modifier) {
                 fontFamily = robotoFonts,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
-                    .padding(start = 16.dp)
             )
             Spacer(modifier = Modifier.weight(0.1f))
             Text(
@@ -46,16 +46,32 @@ fun CatchCard(label: String, text: String, imageId: Int, modifier: Modifier) {
                 fontFamily = robotoFonts,
                 fontWeight = FontWeight.Light,
                 modifier = Modifier
-                    .padding(end = 16.dp)
             )
         }
     }
 }
 
+//@Preview(showBackground = false)
 @Preview(showBackground = true, backgroundColor = 0xFFEEF4F3) //primary color
 @Composable
 fun CatchCardPreview() {
     FishGalleryTheme {
+//        Column(
+//            modifier = Modifier
+//                .background(MaterialTheme.colorScheme.primary)
+//                .fillMaxSize()
+//                .verticalScroll(rememberScrollState())
+//                .padding(24.dp)
+//        ) {
+//            CatchCard(
+//                label = "Призрачный дельфи",
+//                text = "50 000 000 тонн",
+//                imageId = bluerose.fishgallery.R.drawable.app1_image1,
+//                modifier = Modifier
+//                .padding(top = 24.dp)
+//            )
+//        }
+
         CatchCard(
             label = "Призрачный дельфи",
             text = "50 000 000 тонн",
