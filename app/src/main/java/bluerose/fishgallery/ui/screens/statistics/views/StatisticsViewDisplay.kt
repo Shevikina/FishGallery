@@ -25,6 +25,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -49,8 +50,13 @@ fun StatisticsViewDisplay() {
     ) {
         Text(
             text = buildAnnotatedString {
-                withStyle(SpanStyle(fontSize = 24.sp)) { append("Компания ") }
-                withStyle(SpanStyle(fontSize = 32.sp)) { append("“Blue Rose”") }
+                withStyle(SpanStyle(fontSize = 24.sp)) {
+                    append(stringResource(R.string.header_title).substringBefore(" "))
+                    append(" ")
+                }
+                withStyle(SpanStyle(fontSize = 32.sp)) {
+                    append(stringResource(R.string.header_title).substringAfter(" "))
+                }
             },
             fontFamily = robotoFonts,
             fontWeight = FontWeight.Light,
@@ -58,20 +64,20 @@ fun StatisticsViewDisplay() {
             modifier = Modifier.padding(bottom = 32.dp)
         )
         StatisticsCard(
-            "Наш улов",
-            "~ 108 000 000 тонн",
+            stringResource(R.string.our_catch_title),
+            stringResource(R.string.our_catch_value).replace("%s", "108 000 000"),
             RoundedCornerShape(16.dp, 32.dp, 16.dp),
             modifier = Modifier.padding(bottom = 24.dp)
         )
         StatisticsCard(
-            "Наша прибыль",
-            "> 5 400 000 кредитов",
+            stringResource(R.string.our_profit_title),
+            stringResource(R.string.our_profit_value).replace("%s", "5 400 000"),
             RoundedCornerShape(16.dp, 0.dp, 16.dp, 32.dp),
             modifier = Modifier.padding(bottom = 24.dp)
         )
         StatisticsCard(
-            "Наши партнеры",
-            "1 500+ партнеров",
+            stringResource(R.string.our_partners_title),
+            stringResource(R.string.our_partners_value).replace("%s", "1 500"),
             RoundedCornerShape(16.dp, 48.dp, 16.dp),
             modifier = Modifier.height(160.dp)
         )
@@ -82,7 +88,7 @@ fun StatisticsViewDisplay() {
             modifier = Modifier.fillMaxSize()
         ) {
             Text(
-                text = "С заботой, Blue Rose",
+                text = stringResource(R.string.footer_title),
                 fontSize = 24.sp,
                 fontFamily = robotoFonts,
                 fontWeight = FontWeight.Light,
