@@ -18,7 +18,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
-import bluerose.fishgallery.ui.theme.robotoFonts
 import bluerose.fishgallery.utils.dashedBorder
 
 @Composable
@@ -36,9 +35,7 @@ fun StatisticsCard(label: String, text: String, shape: RoundedCornerShape, modif
     ){
         Text(
             text = label,
-            fontFamily = robotoFonts,
-            fontSize = 20.sp,
-            fontWeight = FontWeight.Normal,
+            style = MaterialTheme.typography.bodyLarge.copy(fontSize = 20.sp),
             color = Color(0xFFACACAC),
             modifier = Modifier.padding(start = 20.dp, top=24.dp)
         )
@@ -58,8 +55,7 @@ fun StatisticsCard(label: String, text: String, shape: RoundedCornerShape, modif
                     append(text.substringAfterLast(" "))
                 }
             },
-            fontFamily = robotoFonts,
-            fontWeight = FontWeight.Bold,
+            style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
             modifier = Modifier.padding(start = 20.dp, top = 10.dp)
         )
     }

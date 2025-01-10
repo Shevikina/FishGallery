@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
 import bluerose.fishgallery.ui.theme.components.JetIconButton
-import bluerose.fishgallery.ui.theme.robotoFonts
 import bluerose.fishgallery.R
 
 @Composable
@@ -45,9 +44,10 @@ fun CatchViewDisplay() {
             ) {
                 Text(
                     text = stringResource(R.string.our_catch_title),
-                    fontWeight = FontWeight.Black,
-                    fontFamily = robotoFonts,
-                    fontSize = 24.sp,
+                    style = MaterialTheme.typography.bodyLarge.copy(
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 24.sp
+                    ),
                     color = MaterialTheme.colorScheme.onPrimary
                 )
             }
