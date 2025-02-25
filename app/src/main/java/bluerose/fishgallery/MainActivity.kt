@@ -30,6 +30,11 @@ class MainActivity : ComponentActivity() {
     }
 }
 
+sealed class NavScreen {
+    data object Statistics : NavScreen()
+    data object Catch: NavScreen()
+}
+
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
