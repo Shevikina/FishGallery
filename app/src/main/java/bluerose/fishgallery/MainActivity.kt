@@ -32,7 +32,7 @@ class MainActivity : ComponentActivity() {
 
 sealed class NavScreen {
     data object Statistics : NavScreen()
-    data object Catch: NavScreen()
+    data object Catch : NavScreen()
 }
 
 @Composable
