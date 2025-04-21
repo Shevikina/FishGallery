@@ -1,4 +1,4 @@
-package bluerose.fishgallery.models.events
+package bluerose.fishgallery.ui.screens.statistics.models
 
 sealed class StatisticsEvent {
     data object EnterScreen : StatisticsEvent()

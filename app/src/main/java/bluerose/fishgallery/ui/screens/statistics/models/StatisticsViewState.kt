@@ -1,4 +1,4 @@
-package bluerose.fishgallery.models.view_states
+package bluerose.fishgallery.ui.screens.statistics.models
 
 sealed class StatisticsViewState {
     data object Loading : StatisticsViewState()

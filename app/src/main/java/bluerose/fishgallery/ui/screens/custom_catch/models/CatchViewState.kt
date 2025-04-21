@@ -1,4 +1,4 @@
-package bluerose.fishgallery.models.view_states
+package bluerose.fishgallery.ui.screens.custom_catch.models
 
 sealed class CatchViewState{
     data object Loading : CatchViewState()

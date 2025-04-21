@@ -1,4 +1,4 @@
-package bluerose.fishgallery.models.events
+package bluerose.fishgallery.ui.screens.custom_catch.models
 
 sealed class CatchEvent {
     data object EnterScreen : CatchEvent()
