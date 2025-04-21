@@ -41,7 +41,11 @@ fun StatisticsCard(
                 on = 11.dp,
                 off = 10.dp
             )
-            .let{if (onClick != null) it.clip(shape).clickable(onClick = onClick) else it}
+            .let {
+                if (onClick != null) it
+                    .clip(shape)
+                    .clickable(onClick = onClick) else it
+            }
     ) {
         Text(
             text = label,

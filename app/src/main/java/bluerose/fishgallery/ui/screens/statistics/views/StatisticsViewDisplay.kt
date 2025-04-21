@@ -30,11 +30,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bluerose.fishgallery.R
+import bluerose.fishgallery.ui.screens.statistics.models.StatisticsEvent
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
 import bluerose.fishgallery.ui.theme.components.JetRoundIcon
 
 @Composable
-fun StatisticsViewDisplay() {
+fun StatisticsViewDisplay(dispatcher: (StatisticsEvent) -> Unit) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -61,13 +62,13 @@ fun StatisticsViewDisplay() {
             stringResource(R.string.our_catch_value).replace("%s", "108 000 000"),
             RoundedCornerShape(16.dp, 32.dp, 16.dp),
             modifier = Modifier.padding(bottom = 24.dp)
-        ){}
+        ) { dispatcher.invoke(StatisticsEvent.OpenCatchScreen) }
         StatisticsCard(
             stringResource(R.string.our_profit_title),
             stringResource(R.string.our_profit_value).replace("%s", "5 400 000"),
             RoundedCornerShape(16.dp, 0.dp, 16.dp, 32.dp),
             modifier = Modifier.padding(bottom = 24.dp)
-        ){}
+        ) {}
         StatisticsCard(
             stringResource(R.string.our_partners_title),
             stringResource(R.string.our_partners_value).replace("%s", "1 500"),
@@ -92,7 +93,10 @@ fun StatisticsViewDisplay() {
             JetRoundIcon(
                 vectorDrawableId = R.drawable.ic_icon,
                 color = MaterialTheme.colorScheme.onPrimary,
-                modifier = Modifier.size(64.dp).clip(CircleShape).clickable(onClick = {})
+                modifier = Modifier
+                    .size(64.dp)
+                    .clip(CircleShape)
+                    .clickable(onClick = {})
             )
         }
     }
@@ -101,5 +105,5 @@ fun StatisticsViewDisplay() {
 @Preview(showBackground = false, locale = "Ru")
 @Composable
 fun StatisticsViewDisplayPreview() {
-    FishGalleryTheme { StatisticsViewDisplay() }
+    FishGalleryTheme { StatisticsViewDisplay {} }
 }
