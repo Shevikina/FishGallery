@@ -1,15 +1,18 @@
 package bluerose.fishgallery.ui.theme.components
 
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.sizeIn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -20,20 +23,24 @@ import com.microsoft.fluent.mobile.icons.R
 @Composable
 fun JetIconButton(
     vectorDrawableId: Int,
+    modifier: Modifier = Modifier,
     contentPadding: PaddingValues = PaddingValues(12.dp),
     shape: RoundedCornerShape = RoundedCornerShape(8.dp),
-    modifier: Modifier = Modifier.size(48.dp)
+    onClick: () -> Unit = {}
 ) {
     Box(
         contentAlignment = Alignment.Center,
         modifier = modifier
+            .sizeIn(48.dp)
             .dashedBorder(
-                2.dp,
+                width = 2.dp,
                 color = MaterialTheme.colorScheme.onPrimary,
                 shape = shape,
                 on = 7.dp,
                 off = 7.dp
             )
+            .clip(shape)
+            .clickable(onClick = onClick)
             .padding(contentPadding)
     ) {
         Icon(
@@ -53,7 +60,8 @@ fun JetIconButtonPreview() {
             vectorDrawableId = R.drawable.ic_fluent_chevron_left_16_filled,
             contentPadding = PaddingValues(12.dp),
             shape = RoundedCornerShape(8.dp),
-            modifier = Modifier.size(48.dp)
+            modifier = Modifier.size(48.dp),
+            onClick = {}
         )
     }
 }
