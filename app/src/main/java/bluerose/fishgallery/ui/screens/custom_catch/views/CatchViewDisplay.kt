@@ -22,9 +22,10 @@ import androidx.compose.ui.unit.sp
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
 import bluerose.fishgallery.ui.theme.components.JetIconButton
 import bluerose.fishgallery.R
+import bluerose.fishgallery.ui.screens.custom_catch.models.CatchEvent
 
 @Composable
-fun CatchViewDisplay() {
+fun CatchViewDisplay(dispatcher: (CatchEvent) -> Unit) {
     Column(
         modifier = Modifier
             .background(MaterialTheme.colorScheme.primary)
@@ -34,8 +35,8 @@ fun CatchViewDisplay() {
     ) {
         Row {
             JetIconButton(
-                com.microsoft.fluent.mobile.icons.R.drawable.ic_fluent_chevron_left_16_filled
-            )
+                vectorDrawableId = com.microsoft.fluent.mobile.icons.R.drawable.ic_fluent_chevron_left_16_filled
+            ) { dispatcher.invoke(CatchEvent.CloseScreen) }
             Box(
                 contentAlignment = Alignment.TopCenter,
                 modifier = Modifier
@@ -83,6 +84,6 @@ fun CatchViewDisplay() {
 @Composable
 fun CatchViewDisplayPreview() {
     FishGalleryTheme {
-        CatchViewDisplay()
+        CatchViewDisplay {}
     }
 }
