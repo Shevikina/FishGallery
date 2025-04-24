@@ -8,6 +8,7 @@ import androidx.compose.ui.window.Dialog
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import bluerose.fishgallery.ui.navigation.NavScreen
+import bluerose.fishgallery.ui.screens.statistics.models.StatisticsAction
 import bluerose.fishgallery.ui.screens.statistics.models.StatisticsEvent
 import bluerose.fishgallery.ui.screens.statistics.views.StatisticsViewDisplay
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
@@ -15,29 +16,42 @@ import bluerose.fishgallery.ui.theme.components.JetDialog
 
 @Composable
 fun StatisticsScreen(navController: NavController) {
-    val isVisibleDialog = remember { mutableStateOf(false) }
+    val viewAction = remember { mutableStateOf<StatisticsAction?>(null) }
+    when (val action = viewAction.value) {
+        is StatisticsAction.ShowDialog -> {
+            Dialog(onDismissRequest = { viewAction.value = null }) {
+                JetDialog(
+                    title = action.title,
+                    body = action.message,
+                    buttonText = action.buttonText,
+                    onClose = { viewAction.value = null }
+                )
+            }
+        }
 
-    StatisticsViewDisplay(onIconClick = { isVisibleDialog.value = true }) { event ->
+        else -> {}
+    }
+
+    StatisticsViewDisplay { event ->
         when (event) {
-            StatisticsEvent.OpenCatchScreen -> {
+            is StatisticsEvent.OpenCatchScreen -> {
                 navController.navigate(NavScreen.Catch)
             }
 
-            StatisticsEvent.EnterScreen -> {} // TODO: добавить обработку события открытия окна
+            is StatisticsEvent.ShowContacts -> {
+                viewAction.value = StatisticsAction.ShowDialog(
+                    title = "Наши контакты",
+                    message = "E-mail: blue-rose@our.galaxy\nАдресат: Джонни Сильверхэд",
+                    buttonText = "OK"
+                )
+            }
 
-            StatisticsEvent.ReloadScreen -> {} // TODO: добавить обработку события перезагрузки окна
+            is StatisticsEvent.EnterScreen -> {} // TODO: добавить обработку события открытия окна
+
+            is StatisticsEvent.ReloadScreen -> {} // TODO: добавить обработку события перезагрузки окна
         }
     }
 
-    if (isVisibleDialog.value)
-        Dialog(onDismissRequest = { isVisibleDialog.value = false }) {
-            JetDialog(
-                title = "Наши контакты",
-                body = "E-mail: blue-rose@our.galaxy\nАдресат: Джонни Сильверхэд",
-                buttonText = "ОК",
-                onClose = { isVisibleDialog.value = false }
-            )
-        }
 }
 
 @Preview(showSystemUi = true)

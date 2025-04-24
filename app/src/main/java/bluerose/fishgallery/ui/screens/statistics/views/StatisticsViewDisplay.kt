@@ -37,7 +37,6 @@ import bluerose.fishgallery.ui.theme.components.JetRoundIcon
 
 @Composable
 fun StatisticsViewDisplay(
-    onIconClick: () -> Unit,
     dispatcher: (StatisticsEvent) -> Unit
 ) {
     Column(
@@ -108,7 +107,7 @@ fun StatisticsViewDisplay(
                 modifier = Modifier
                     .size(64.dp)
                     .clip(CircleShape)
-                    .clickable(onClick = onIconClick)
+                    .clickable(onClick = { dispatcher.invoke(StatisticsEvent.ShowContacts) })
             )
         }
     }
@@ -117,5 +116,5 @@ fun StatisticsViewDisplay(
 @Preview(showBackground = false, locale = "Ru")
 @Composable
 fun StatisticsViewDisplayPreview() {
-    FishGalleryTheme { StatisticsViewDisplay({}) {} }
+    FishGalleryTheme { StatisticsViewDisplay {} }
 }
