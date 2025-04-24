@@ -32,14 +32,12 @@ fun CatchCard(label: String, text: String, imageId: Int, modifier: Modifier) {
                 text = label,
                 color = MaterialTheme.colorScheme.onPrimary,
                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
-                modifier = Modifier
             )
             Spacer(modifier = Modifier.weight(0.1f))
             Text(
                 text = text,
                 color = MaterialTheme.colorScheme.onPrimary,
                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Light),
-                modifier = Modifier
             )
         }
     }

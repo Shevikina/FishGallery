@@ -19,10 +19,10 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import bluerose.fishgallery.ui.theme.FishGalleryTheme
-import bluerose.fishgallery.ui.theme.components.JetIconButton
 import bluerose.fishgallery.R
 import bluerose.fishgallery.ui.screens.custom_catch.models.CatchEvent
+import bluerose.fishgallery.ui.theme.FishGalleryTheme
+import bluerose.fishgallery.ui.theme.components.JetIconButton
 
 @Composable
 fun CatchViewDisplay(dispatcher: (CatchEvent) -> Unit) {
@@ -60,6 +60,7 @@ fun CatchViewDisplay(dispatcher: (CatchEvent) -> Unit) {
             imageId = R.drawable.app1_image1,
             modifier = Modifier
                 .padding(top = 24.dp)
+                .fillMaxWidth()
         )
         CatchCard(
             label = "Алмазный ус",
@@ -68,6 +69,7 @@ fun CatchViewDisplay(dispatcher: (CatchEvent) -> Unit) {
             imageId = R.drawable.app1_image2,
             modifier = Modifier
                 .padding(top = 24.dp)
+                .fillMaxWidth()
         )
         CatchCard(
             label = "Шестиперая аку",
@@ -76,6 +78,7 @@ fun CatchViewDisplay(dispatcher: (CatchEvent) -> Unit) {
             imageId = R.drawable.app1_image3,
             modifier = Modifier
                 .padding(top = 24.dp)
+                .fillMaxWidth()
         )
     }
 }

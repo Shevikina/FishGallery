@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
@@ -36,7 +37,7 @@ import bluerose.fishgallery.ui.theme.components.JetRoundIcon
 
 @Composable
 fun StatisticsViewDisplay(
-    onIconClick: ()->Unit,
+    onIconClick: () -> Unit,
     dispatcher: (StatisticsEvent) -> Unit
 ) {
     Column(
@@ -58,25 +59,33 @@ fun StatisticsViewDisplay(
             },
             style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Light),
             color = MaterialTheme.colorScheme.onPrimary,
-            modifier = Modifier.padding(bottom = 32.dp)
+            modifier = Modifier
+                .padding(bottom = 32.dp)
+                .fillMaxWidth()
         )
         StatisticsCard(
             stringResource(R.string.our_catch_title),
             stringResource(R.string.our_catch_value).replace("%s", "108 000 000"),
             RoundedCornerShape(16.dp, 32.dp, 16.dp),
-            modifier = Modifier.padding(bottom = 24.dp)
+            modifier = Modifier
+                .padding(bottom = 24.dp)
+                .fillMaxWidth()
         ) { dispatcher.invoke(StatisticsEvent.OpenCatchScreen) }
         StatisticsCard(
             stringResource(R.string.our_profit_title),
             stringResource(R.string.our_profit_value).replace("%s", "5 400 000"),
             RoundedCornerShape(16.dp, 0.dp, 16.dp, 32.dp),
-            modifier = Modifier.padding(bottom = 24.dp)
+            modifier = Modifier
+                .padding(bottom = 24.dp)
+                .fillMaxWidth()
         ) {}
         StatisticsCard(
             stringResource(R.string.our_partners_title),
             stringResource(R.string.our_partners_value).replace("%s", "1 500"),
             RoundedCornerShape(16.dp, 48.dp, 16.dp),
-            modifier = Modifier.height(160.dp)
+            modifier = Modifier
+                .height(160.dp)
+                .fillMaxWidth()
         )
         Spacer(Modifier.weight(1f))
         Row(
@@ -108,5 +117,5 @@ fun StatisticsViewDisplay(
 @Preview(showBackground = false, locale = "Ru")
 @Composable
 fun StatisticsViewDisplayPreview() {
-    FishGalleryTheme { StatisticsViewDisplay ({}){} }
+    FishGalleryTheme { StatisticsViewDisplay({}) {} }
 }
