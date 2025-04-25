@@ -1,4 +1,4 @@
-package bluerose.fishgallery.locale
+package bluerose.fishgallery.data.locale
 
 import bluerose.fishgallery.R
 import bluerose.fishgallery.ui.screens.custom_catch.models.CatchInfo

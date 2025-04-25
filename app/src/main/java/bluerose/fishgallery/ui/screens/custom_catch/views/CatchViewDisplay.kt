@@ -20,7 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bluerose.fishgallery.R
-import bluerose.fishgallery.locale.Database
+import bluerose.fishgallery.data.locale.Database
 import bluerose.fishgallery.ui.screens.custom_catch.models.CatchEvent
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
 import bluerose.fishgallery.ui.theme.components.JetIconButton
