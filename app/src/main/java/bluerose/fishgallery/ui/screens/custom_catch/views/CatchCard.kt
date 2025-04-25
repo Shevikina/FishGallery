@@ -10,32 +10,36 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import bluerose.fishgallery.R
+import bluerose.fishgallery.ui.screens.custom_catch.models.CatchInfo
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
 import bluerose.fishgallery.ui.theme.components.JetRoundImage
 
 @Composable
-fun CatchCard(label: String, text: String, imageId: Int, modifier: Modifier) {
+fun CatchCard(catchInfo: CatchInfo, modifier: Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
     ) {
-        JetRoundImage(imageId)
+        JetRoundImage(catchInfo.imageId)
         Row(
             horizontalArrangement = Arrangement.SpaceBetween,
             modifier = Modifier
                 .padding(horizontal = 16.dp, vertical = 5.dp)
         ) {
             Text(
-                text = label,
+                text = catchInfo.label,
                 color = MaterialTheme.colorScheme.onPrimary,
                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
             )
             Spacer(modifier = Modifier.weight(0.1f))
             Text(
-                text = text,
+                text = stringResource(R.string.our_catch_value)
+                    .replace("%s", catchInfo.catchValue),
                 color = MaterialTheme.colorScheme.onPrimary,
                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Light),
             )
@@ -48,9 +52,11 @@ fun CatchCard(label: String, text: String, imageId: Int, modifier: Modifier) {
 fun CatchCardPreview() {
     FishGalleryTheme {
         CatchCard(
-            label = "Призрачный дельфи",
-            text = "50 000 000 тонн",
-            imageId = bluerose.fishgallery.R.drawable.app1_image1,
+            CatchInfo(
+                label = "Призрачный дельфи",
+                catchValue = "50 000 000",
+                imageId = R.drawable.app1_image1
+            ),
             modifier = Modifier
         )
     }

@@ -20,6 +20,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bluerose.fishgallery.R
+import bluerose.fishgallery.locale.Database
 import bluerose.fishgallery.ui.screens.custom_catch.models.CatchEvent
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
 import bluerose.fishgallery.ui.theme.components.JetIconButton
@@ -53,33 +54,15 @@ fun CatchViewDisplay(dispatcher: (CatchEvent) -> Unit) {
                 )
             }
         }
-        CatchCard(
-            label = "Призрачный дельфи",
-            text = stringResource(R.string.our_catch_value)
-                .replace("%s", "50 000 000"),
-            imageId = R.drawable.app1_image1,
-            modifier = Modifier
-                .padding(top = 24.dp)
-                .fillMaxWidth()
-        )
-        CatchCard(
-            label = "Алмазный ус",
-            text = stringResource(R.string.our_catch_value)
-                .replace("%s", "48 000 000"),
-            imageId = R.drawable.app1_image2,
-            modifier = Modifier
-                .padding(top = 24.dp)
-                .fillMaxWidth()
-        )
-        CatchCard(
-            label = "Шестиперая аку",
-            text = stringResource(R.string.our_catch_value)
-                .replace("%s", "10 000 000"),
-            imageId = R.drawable.app1_image3,
-            modifier = Modifier
-                .padding(top = 24.dp)
-                .fillMaxWidth()
-        )
+
+        Database.catchList.forEach { info ->
+            CatchCard(
+                catchInfo = info,
+                modifier = Modifier
+                    .padding(top = 24.dp)
+                    .fillMaxWidth()
+            )
+        }
     }
 }
 
