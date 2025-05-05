@@ -15,12 +15,12 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import bluerose.fishgallery.R
-import bluerose.fishgallery.ui.screens.custom_catch.models.CatchInfo
+import bluerose.fishgallery.data.locale.entity.FishCatchDetails
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
 import bluerose.fishgallery.ui.theme.components.JetRoundImage
 
 @Composable
-fun CatchCard(catchInfo: CatchInfo, modifier: Modifier) {
+fun CatchCard(catchInfo: FishCatchDetails, modifier: Modifier) {
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier
@@ -32,14 +32,14 @@ fun CatchCard(catchInfo: CatchInfo, modifier: Modifier) {
                 .padding(horizontal = 16.dp, vertical = 5.dp)
         ) {
             Text(
-                text = catchInfo.label,
+                text = catchInfo.fishName,
                 color = MaterialTheme.colorScheme.onPrimary,
                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Medium),
             )
             Spacer(modifier = Modifier.weight(0.1f))
             Text(
                 text = stringResource(R.string.our_catch_value)
-                    .replace("%s", catchInfo.catchValue),
+                    .replace("%s", catchInfo.fishCatch),
                 color = MaterialTheme.colorScheme.onPrimary,
                 style = MaterialTheme.typography.bodyLarge.copy(fontWeight = FontWeight.Light),
             )
@@ -52,9 +52,9 @@ fun CatchCard(catchInfo: CatchInfo, modifier: Modifier) {
 fun CatchCardPreview() {
     FishGalleryTheme {
         CatchCard(
-            CatchInfo(
-                label = "Призрачный дельфи",
-                catchValue = "50 000 000",
+            FishCatchDetails(
+                fishName = "Призрачный дельфи",
+                fishCatch = "50 000 000",
                 imageId = R.drawable.app1_image1
             ),
             modifier = Modifier

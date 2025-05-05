@@ -31,9 +31,11 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import bluerose.fishgallery.R
+import bluerose.fishgallery.data.locale.Database
 import bluerose.fishgallery.ui.screens.statistics.models.StatisticsEvent
 import bluerose.fishgallery.ui.theme.FishGalleryTheme
 import bluerose.fishgallery.ui.theme.components.JetRoundIcon
+import bluerose.fishgallery.utils.getFormatted
 
 @Composable
 fun StatisticsViewDisplay(
@@ -64,7 +66,10 @@ fun StatisticsViewDisplay(
         )
         StatisticsCard(
             stringResource(R.string.our_catch_title),
-            stringResource(R.string.our_catch_value).replace("%s", "108 000 000"),
+            stringResource(R.string.our_catch_value).replace(
+                "%s",
+                Database.statisticsDetails.fishCatch.toInt().getFormatted()
+            ),
             RoundedCornerShape(16.dp, 32.dp, 16.dp),
             modifier = Modifier
                 .padding(bottom = 24.dp)
@@ -72,7 +77,10 @@ fun StatisticsViewDisplay(
         ) { dispatcher.invoke(StatisticsEvent.OpenCatchScreen) }
         StatisticsCard(
             stringResource(R.string.our_profit_title),
-            stringResource(R.string.our_profit_value).replace("%s", "5 400 000"),
+            stringResource(R.string.our_profit_value).replace(
+                "%s",
+                Database.statisticsDetails.profit.toInt().getFormatted()
+            ),
             RoundedCornerShape(16.dp, 0.dp, 16.dp, 32.dp),
             modifier = Modifier
                 .padding(bottom = 24.dp)
@@ -80,7 +88,10 @@ fun StatisticsViewDisplay(
         ) {}
         StatisticsCard(
             stringResource(R.string.our_partners_title),
-            stringResource(R.string.our_partners_value).replace("%s", "1 500"),
+            stringResource(R.string.our_partners_value).replace(
+                "%s",
+                Database.statisticsDetails.partnerCount.getFormatted()
+            ),
             RoundedCornerShape(16.dp, 48.dp, 16.dp),
             modifier = Modifier
                 .height(160.dp)

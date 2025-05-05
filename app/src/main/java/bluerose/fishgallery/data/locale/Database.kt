@@ -1,23 +1,30 @@
 package bluerose.fishgallery.data.locale
 
 import bluerose.fishgallery.R
-import bluerose.fishgallery.ui.screens.custom_catch.models.CatchInfo
+import bluerose.fishgallery.data.locale.entity.StatisticsDetails
+import bluerose.fishgallery.data.locale.entity.FishCatchDetails
 
 object Database {
+    val statisticsDetails = StatisticsDetails(
+        profit = 5400000.0,
+        fishCatch = 108000000,
+        partnerCount = 1500
+    )
+
     val catchList = listOf(
-        CatchInfo(
-            label = "Призрачный дельфи",
-            catchValue = "50 000 000",
+        FishCatchDetails(
+            fishName = "Призрачный дельфи",
+            fishCatch = "50 000 000",
             imageId = R.drawable.app1_image1
         ),
-        CatchInfo(
-            label = "Алмазный ус",
-            catchValue = "48 000 000",
+        FishCatchDetails(
+            fishName = "Алмазный ус",
+            fishCatch = "48 000 000",
             imageId = R.drawable.app1_image2
         ),
-        CatchInfo(
-            label = "Шестиперая аку",
-            catchValue = "10 000 000",
+        FishCatchDetails(
+            fishName = "Шестиперая аку",
+            fishCatch = "10 000 000",
             imageId = R.drawable.app1_image3,
         )
     )
